@@ -38,16 +38,9 @@ if (!isVercel) {
   }
 } else {
   // On Vercel, static files are served automatically from public/ directory via CDN
-  // This route handler is mainly for SPA client-side routing fallback
-  // Vercel will serve public/index.html automatically for all routes
-  app.get("*", (_req, res) => {
-    // This shouldn't normally be hit since Vercel serves static files first
-    // But if it is, redirect or serve a message
-    res.status(404).json({ 
-      error: "Not found",
-      message: "Static files should be served automatically by Vercel CDN"
-    });
-  });
+  // The rewrite rule in vercel.json handles SPA routing by serving index.html
+  // This Express app should NOT catch all routes - only handle specific API routes if needed
+  // No catch-all route here - let Vercel handle static files and rewrites
 }
 
 // Export the app for Vercel (serverless function)
