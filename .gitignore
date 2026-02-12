@@ -7,6 +7,10 @@ dist/
 build/
 *.dist
 
+# Generated files for Vercel deployment (generated during build)
+public/
+api/
+
 # Environment variables
 .env
 .env.local
