@@ -1,0 +1,169 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #6366F1; top: -400px; left: -200px; }
+        .blob-2 { background: #3B82F6; bottom: -400px; right: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Goals Grid */
+        .goals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .goal-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            transition: transform 0.2s;
+        }
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .icon-blue { background: #EFF6FF; color: #3B82F6; }
+        .icon-indigo { background: #EEF2FF; color: #6366F1; }
+        .icon-purple { background: #F5F3FF; color: #8B5CF6; }
+        .icon-green { background: #ECFDF5; color: #10B981; }
+
+        .content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>SESSION GOAL</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="goals-grid">
+            <div class="goal-card">
+                <div class="icon-box icon-indigo">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <div class="content">
+                    <h2>Vibe Coding</h2>
+                    <p>Use AI to rapid-prototype a one-page B2B refrigerant gas trading site in Lovable.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="icon-box icon-blue">
+                    <i class="fas fa-cubes"></i>
+                </div>
+                <div class="content">
+                    <h2>ClearContent CMS</h2>
+                    <p>Build ClearContent CMS with Supabase: content, blocks, menu, form, SEO, multilingual.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="icon-box icon-purple">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="content">
+                    <h2>Full Stack Workflow</h2>
+                    <p>Lovable → GitHub → Cursor (Antigravity allowed). Deploy Netlify, email via Resend.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="icon-box icon-green">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="content">
+                    <h2>Production Ready</h2>
+                    <p>One-page with Hero, About, What We Offer, Contact. Responsive, accessible, multilingual, SEO.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>

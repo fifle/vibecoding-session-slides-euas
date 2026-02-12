@@ -1,0 +1,265 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 40px 24px; /* keep top padding, reduce sides & bottom to save height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #6366F1; top: -300px; right: -200px; }
+        .blob-2 { background: #3B82F6; bottom: -300px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 28px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Left Column: Process Steps */
+        .process-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .process-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 28px; /* reduced vertical padding */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+        }
+
+        /* Connecting line visual */
+        .process-list::before {
+            content: '';
+            position: absolute;
+            left: 52px; /* Center of icon (32px padding + 20px half icon width approx) */
+            top: 40px;
+            bottom: 40px;
+            width: 2px;
+            background: #E5E7EB;
+            z-index: -1;
+            display: none; /* Hidden for now, cards look better clean */
+        }
+
+        .step-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: #EEF2FF;
+            color: #6366F1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .step-content p {
+            font-size: 16px;
+            color: #4B5563;
+            line-height: 1.4;
+        }
+
+        /* Right Column: Why Box */
+        .why-card {
+            background: linear-gradient(145deg, #4F46E5, #4338CA);
+            border-radius: 32px;
+            padding: 36px; /* slightly reduced to save height */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.3);
+        }
+
+        .why-card h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 20px;
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .why-list li i {
+            margin-top: 6px;
+            color: #A5B4FC;
+        }
+
+        .why-list li strong {
+            color: white;
+            font-weight: 700;
+        }
+        
+        .why-list li span {
+            color: #E0E7FF;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>SPEC-DRIVEN DEVELOPMENT (SDD)</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left Column: Process -->
+            <div class="process-list">
+                <div class="process-card">
+                    <div class="step-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>1. Spec</h3>
+                        <p>Written description of what you want to build.</p>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>2. Acceptance Criteria</h3>
+                        <p class="">How do you know it's ready? = tests</p>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>3. Task Breakdown</h3>
+                        <p>Small, tested steps.</p>
+                    </div>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>4. Iterate</h3>
+                        <p>Feedback → change spec → new iteration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Why -->
+            <div class="why-card">
+                <h2>Why SDD + AI?</h2>
+                <ul class="why-list">
+                    <li>
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="">
+                            <strong>Clarity is key</strong><br>
+                            <span>LLM performs better when you are precise.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-signs"></i>
+                        <div class="">
+                            <strong>Spec = Guide</strong><br>
+                            <span>Not just "do something",&nbsp;</span><div><span>but a concrete plan.</span>
+                        </div></div>
+                    </li>
+                    <li>
+                        <i class="fas fa-vial"></i>
+                        <div class="">
+                            <strong>Criteria = Test</strong><br>
+                            <span>Not "show me",&nbsp;</span><div><span>but "does it work like this?".</span>
+                        </div></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body></html>

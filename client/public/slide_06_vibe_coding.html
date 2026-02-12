@@ -1,0 +1,264 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #6366F1; top: -400px; right: -200px; }
+        .blob-2 { background: #3B82F6; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 24px; /* reduced to save vertical space */
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 18px; /* reduced gap */
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px; /* reduced padding from 32px */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Card Styles */
+        .card-origin {
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+            color: white;
+        }
+
+        .card-origin h3 {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .card-origin .highlight {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .card-vibe {
+            justify-content: center;
+        }
+
+        .card-formula {
+            grid-column: 2;
+            grid-row: 1;
+            background: white;
+            border: 2px solid #EEF2FF;
+        }
+
+        .card-goal {
+            grid-column: 2;
+            grid-row: 2;
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+        }
+
+        /* Typography inside cards */
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 12px; /* slightly reduced */
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 i { color: #6366F1; }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+
+        .formula-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #EEF2FF;
+            padding: 12px; /* reduced padding */
+            border-radius: 16px;
+            margin-top: 12px; /* reduced */
+            font-weight: 600;
+            color: #4338CA;
+            font-size: 20px;
+        }
+
+        .formula-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px; /* slightly reduced */
+        }
+        
+        .formula-item span {
+            font-size: 14px;
+            color: #6B7280;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .operator {
+            color: #9CA3AF;
+            font-size: 24px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px; /* reduced */
+            font-size: 18px;
+            color: #374151;
+        }
+
+        .list-item i {
+            color: #10B981;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1 class="">VIBE CODING</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left Column: Origin -->
+            <div class="card card-origin">
+                <h3>Origin</h3>
+                <div class="highlight">Andrej Karpathy</div>
+                <div style="font-size: 16px; opacity: 0.8; margin-top: 4px;">2025</div>
+                <div style="margin-top: 16px; font-size: 18px; line-height: 1.4;"> <!-- reduced top margin -->
+                    "Rapid prototyping with AI, where intuition drives iteration."
+                </div>
+            </div>
+
+            <!-- Left Column: The Vibe -->
+            <div class="card card-vibe">
+                <h2><i class="fas fa-wind"></i> What is "Vibe"?</h2>
+                <div class="list-item">
+                    <i class="fas fa-check"></i> Feeling (Flow)
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-check"></i> Speed
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-check"></i> Creativity
+                </div>
+                <p style="margin-top: 12px; font-size: 16px;" class=""> <!-- reduced top margin -->
+                    Less boilerplate,&nbsp;</p><div>more focus on results.
+                </div><p></p>
+            </div>
+
+            <!-- Right Column: The Formula -->
+            <div class="card card-formula">
+                <h2><i class="fas fa-flask"></i> Real Meaning</h2>
+                <p style="margin-bottom:8px;" class="">It's not just "AI does everything". It's a systematic process:</p>
+                
+                <div class="formula-box">
+                    <div class="formula-item">
+                        <i class="fas fa-file-alt" style="font-size: 24px;"></i>
+                        <span>Spec</span>
+                    </div>
+                    <div class="operator">+</div>
+                    <div class="formula-item">
+                        <i class="fas fa-robot" style="font-size: 24px;"></i>
+                        <span>LLM</span>
+                    </div>
+                    <div class="operator">+</div>
+                    <div class="formula-item">
+                        <i class="fas fa-user-check" style="font-size: 24px;"></i>
+                        <span>Verification</span>
+                    </div>
+                    <div class="operator">=</div>
+                    <div class="formula-item">
+                        <i class="fas fa-sync-alt" style="font-size: 24px;"></i>
+                        <span>Iteration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Goal -->
+            <div class="card card-goal">
+                <h2><i class="fas fa-bullseye"></i> Goal</h2>
+                <p style="margin-bottom:8px;" class="">
+                    Build <strong>MVPs 10x faster</strong>, while maintaining code quality and structure.
+                </p>
+                <p style="margin-top: 8px;" class="">
+                    From idea to a working solution in hours, not days.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body></html>

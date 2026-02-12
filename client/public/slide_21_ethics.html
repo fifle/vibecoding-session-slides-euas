@@ -1,0 +1,196 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #EF4444; top: -400px; right: -200px; }
+        .blob-2 { background: #F59E0B; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #EF4444;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .risk-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-left: 6px solid transparent;
+            transition: transform 0.2s ease;
+        }
+
+        /* Card Variants */
+        .card-hallucination { border-left-color: #F59E0B; } /* Orange */
+        .card-security { border-left-color: #EF4444; }      /* Red */
+        .card-dependency { border-left-color: #8B5CF6; }    /* Purple */
+        .card-ownership { border-left-color: #3B82F6; }     /* Blue */
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .card-hallucination .icon-box { background: #FFFBEB; color: #F59E0B; }
+        .card-security .icon-box { background: #FEF2F2; color: #EF4444; }
+        .card-dependency .icon-box { background: #F5F3FF; color: #8B5CF6; }
+        .card-ownership .icon-box { background: #EFF6FF; color: #3B82F6; }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F2937;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+
+        .warning-tag {
+            display: inline-block;
+            margin-top: auto;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 8px;
+            width: fit-content;
+        }
+
+        .card-hallucination .warning-tag { background: #FFFBEB; color: #B45309; }
+        .card-security .warning-tag { background: #FEF2F2; color: #991B1B; }
+        .card-dependency .warning-tag { background: #F5F3FF; color: #5B21B6; }
+        .card-ownership .warning-tag { background: #EFF6FF; color: #1E40AF; }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>ETHICS AND RISKS</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="risk-grid">
+            <!-- 1. Hallucinations -->
+            <div class="card card-hallucination">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-ghost"></i></div>
+                    <h2>Hallucinations</h2>
+                </div>
+                <p>AI can generate very convincing but completely wrong code or information. Don't trust blindly – always check the result.</p>
+                
+            </div>
+
+            <!-- 2. Security -->
+            <div class="card card-security">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-lock"></i></div>
+                    <h2>Security &amp; Data</h2>
+                </div>
+                <p class="">Never enter API keys or passwords into prompts. Do not upload sensitive client data.</p>
+                
+            </div>
+
+            <!-- 3. Dependency -->
+            <div class="card card-dependency">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-brain"></i></div>
+                    <h2>Learning Dependency</h2>
+                </div>
+                <p>If you let AI do everything, you won't learn the fundamentals yourself. If something breaks, you won't know how to fix it.</p>
+                
+            </div>
+
+            <!-- 4. Ownership -->
+            <div class="card card-ownership">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-balance-scale"></i></div>
+                    <h2>Responsibility &amp; Copyright</h2>
+                </div>
+                <p>In the end, you are responsible for the code, not the AI. Copyright issues are still a gray area.</p>
+                
+            </div>
+        </div>
+    </div>
+
+</body></html>

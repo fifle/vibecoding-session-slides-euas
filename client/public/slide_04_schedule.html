@@ -1,0 +1,187 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #6366F1; top: -300px; right: -100px; }
+        .blob-2 { background: #3B82F6; bottom: -300px; left: -100px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Schedule Grid */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 24px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .time-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 6px solid transparent;
+        }
+
+        /* Card Variants */
+        .card-theory { border-left-color: #9CA3AF; }
+        .card-setup { border-left-color: #6366F1; }
+        .card-checkpoint { border-left-color: #8B5CF6; }
+        .card-wrapup { border-left-color: #10B981; }
+
+        .time-badge {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #6B7280;
+            margin-bottom: 8px;
+            background: #F3F4F6;
+            padding: 4px 12px;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .card-setup .time-badge { color: #4F46E5; background: #EEF2FF; }
+        .card-checkpoint .time-badge { color: #7C3AED; background: #F5F3FF; }
+        .card-wrapup .time-badge { color: #059669; background: #ECFDF5; }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 16px;
+            color: #4B5563;
+            line-height: 1.4;
+        }
+
+        .icon-wrapper {
+            float: right;
+            font-size: 24px;
+            opacity: 0.2;
+            margin-top: -30px;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1 class="">SCHEDULE</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="schedule-grid">
+            <!-- Column 1 -->
+            <div class="time-card card-theory">
+                
+                <div class="icon-wrapper"><i class="fas fa-book"></i></div>
+                <h2>Concepts and Theory</h2>
+                <p>GenAI, LLM, Prompting and "Vibe coding".</p>
+            </div>
+
+            <div class="time-card card-theory">
+                
+                <div class="icon-wrapper"><i class="fas fa-tools"></i></div>
+                <h2>SDD and Tools</h2>
+                <p>Introduction to Spec-Driven Development and Google AI Studio.</p>
+            </div>
+
+            <div class="time-card card-setup">
+                
+                <div class="icon-wrapper"><i class="fas fa-laptop-code"></i></div>
+                <h2 class="">Checkpoint A</h2>
+                <p>Scaffold UI in Lovable, export to GitHub, continue in Cursor.</p>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="time-card card-checkpoint">
+                
+                <div class="icon-wrapper"><i class="fas fa-database"></i></div>
+                <h2>Checkpoint B</h2>
+                <p class="">Supabase + ClearContent CMS. Content, blocks, form, inquiries.</p>
+            </div>
+
+            <div class="time-card card-checkpoint">
+                
+                <div class="icon-wrapper"><i class="fas fa-user-shield"></i></div>
+                <h2>Checkpoint C</h2>
+                <p>Resend email, Netlify deploy, watermarks, submit /ai-web-2026.txt.</p>
+            </div>
+
+            <div class="time-card card-wrapup">
+                
+                <div class="icon-wrapper"><i class="fas fa-flag-checkered"></i></div>
+                <h2 class="">The End</h2>
+                <p class="">Final submission, evidence, demo login, Q&amp;A</p>
+            </div>
+        </div>
+    </div>
+
+
+</body></html>

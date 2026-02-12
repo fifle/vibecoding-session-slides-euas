@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #10B981; top: -400px; right: -200px; }
+        .blob-2 { background: #EF4444; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #10B981;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 16px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Left Column: Code Editor */
+        .editor-card {
+            background: #1E1E1E;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .editor-header {
+            background: #252526;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #333;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red { background: #FF5F56; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #27C93F; }
+
+        .editor-title {
+            color: #9CA3AF;
+            font-size: 14px;
+            margin-left: 12px;
+            font-family: monospace;
+        }
+
+        .code-content {
+            padding: 12px;
+            color: #D4D4D4;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 16px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .keyword { color: #C586C0; }
+        .string { color: #CE9178; }
+        .comment { color: #6A9955; }
+        .function { color: #DCDCAA; }
+
+        /* Right Column */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        /* Criteria Card */
+        .criteria-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            border-top: 6px solid #10B981;
+        }
+
+        .criteria-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .criteria-list {
+            list-style: none;
+        }
+
+        .criteria-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+            font-size: 20px;
+            color: #4B5563;
+        }
+
+        .check-icon {
+            color: #10B981;
+            font-size: 24px;
+        }
+
+        .security-note {
+            margin-top: 12px;
+            padding: 12px;
+            background: #FEF2F2;
+            border-radius: 12px;
+            border-left: 4px solid #EF4444;
+            color: #991B1B;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>PROMPT 4: FIRESTORE SECURITY RULES</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left: Code Editor -->
+            <div class="editor-card">
+                <div class="editor-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <div class="editor-title">prompt.txt</div>
+                </div>
+                <div class="code-content">Implement the contact pipeline and secure secrets.
+
+Requirements:
+1. <span class="keyword">Inquiry storage</span>:
+   - Save every submission in Supabase with <span class="function">team_slug</span> and <span class="function">source = ai-web-2026</span>
+
+2. <span class="keyword">Resend email</span>:
+   - On submit: send email via Resend
+   - Subject: <span class="string">[AI-WEB-2026] &lt;TEAM_SLUG&gt;</span>
+   - Body: submitted fields and inquiry id
+
+3. <span class="keyword">Security</span>:
+   - All secrets in Netlify environment variables; never commit to GitHub
+   - Optional: Supabase RLS for CMS and inquiries</div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-col">
+                <!-- Acceptance Criteria -->
+                <div class="criteria-card">
+                    <h2><i class="fas fa-shield-alt" style="color: #10B981;"></i> Acceptance Criteria</h2>
+                    <ul class="criteria-list">
+                        <li>
+                            <i class="fas fa-check-circle check-icon"></i>
+                            <span>Inquiry saved in Supabase (team_slug, source)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle check-icon"></i>
+                            <span>Email received with [AI-WEB-2026] subject</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle check-icon"></i>
+                            <span>Secrets only in Netlify env</span>
+                        </li>
+                    </ul>
+
+                    <div class="security-note">
+                        <strong><i class="fas fa-exclamation-triangle"></i> NB!</strong> Do not publish API keys or passwords. Share demo login privately via course channel.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding-top: 120px; /* Centered vertical alignment strategy */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #3B82F6; top: -400px; right: -200px; }
+        .blob-2 { background: #8B5CF6; bottom: -400px; left: -200px; }
+
+        /* Main Content */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .icon-large {
+            font-size: 80px;
+            color: #6366F1;
+            margin-bottom: 32px;
+            display: inline-block;
+            background: #EEF2FF;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            line-height: 160px;
+            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.2);
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 24px;
+            color: #4B5563;
+            line-height: 1.5;
+            margin-bottom: 60px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 24px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: transform 0.2s;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: #3B82F6;
+            width: 48px;
+            height: 48px;
+            background: #EFF6FF;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            color: #6B7280;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 18px;
+            color: #1F2937;
+            font-weight: 700;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="content-wrapper">
+            <div class="icon-large">
+                <i class="fas fa-comments"></i>
+            </div>
+            
+            <h1>QUESTIONS?</h1>
+            <p>Let's discuss thoughts and ideas.<br>How are you approaching the ClearContent CMS and contact pipeline?</p>
+
+            <div class="contact-container">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">pavel@fleisher.ee</div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">Pavel Fleisher</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>
