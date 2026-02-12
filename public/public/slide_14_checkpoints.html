@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 60px 40px; /* reduced bottom padding from 60px to 40px to fix overflow */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #3B82F6; top: -400px; right: -200px; }
+        .blob-2 { background: #10B981; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Section Label */
+        .section-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: #6B7280;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #E5E7EB;
+        }
+
+        /* Pages Grid */
+        .pages-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .page-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .icon-public { background: #EFF6FF; color: #3B82F6; }
+        .icon-admin { background: #FEF2F2; color: #EF4444; }
+
+        .page-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 4px;
+            font-family: 'Monaco', monospace;
+        }
+
+        .page-content p {
+            font-size: 16px;
+            color: #4B5563;
+        }
+
+        /* Checkpoints Grid */
+        .checkpoints-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .checkpoint-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 6px solid transparent;
+        }
+
+        /* Checkpoint Variants */
+        .cp-a { border-top-color: #3B82F6; }
+        .cp-b { border-top-color: #8B5CF6; }
+        .cp-c { border-top-color: #10B981; }
+
+        .cp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .cp-badge {
+            font-size: 14px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+
+        .cp-a .cp-badge { background: #EFF6FF; color: #3B82F6; }
+        .cp-b .cp-badge { background: #F5F3FF; color: #8B5CF6; }
+        .cp-c .cp-badge { background: #ECFDF5; color: #10B981; }
+
+        .time-tag {
+            font-size: 14px;
+            color: #6B7280;
+            font-weight: 600;
+        }
+
+        .checkpoint-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .checkpoint-card ul {
+            list-style: none;
+        }
+
+        .checkpoint-card li {
+            font-size: 16px;
+            color: #4B5563;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .checkpoint-card li::before {
+            content: "•";
+            color: #D1D5DB;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .cp-a li::before { color: #3B82F6; }
+        .cp-b li::before { color: #8B5CF6; }
+        .cp-c li::before { color: #10B981; }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>WORKFLOW &amp; CHECKPOINTS</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <!-- Pages Section -->
+        <div class="section-label">Architecture</div>
+        <div class="pages-grid">
+            <div class="page-card">
+                <div class="page-icon icon-public">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="page-content">
+                    <h3>Public Site</h3>
+                    <p>One-page site. Reads content and config from Supabase.</p>
+                </div>
+            </div>
+
+            <div class="page-card">
+                <div class="page-icon icon-admin">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="page-content">
+                    <h3>ClearContent CMS</h3>
+                    <p>Visual Builder, Content &amp; SEO Manager.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkpoints Section -->
+        <div class="section-label">Development Roadmap</div>
+        <div class="checkpoints-grid">
+            <!-- Checkpoint A -->
+            <div class="checkpoint-card cp-a">
+                <div class="cp-header">
+                    <span class="cp-badge">Phase 1</span>
+                </div>
+                <h3>Scaffold &amp; Export</h3>
+                <ul>
+                    <li>Scaffold one-page UI in Lovable</li>
+                    <li>Export to code, push to GitHub</li>
+                    <li>Continue development in Cursor</li>
+                    <li>Deploy on Netlify</li>
+                </ul>
+            </div>
+
+            <!-- Checkpoint B -->
+            <div class="checkpoint-card cp-b">
+                <div class="cp-header">
+                    <span class="cp-badge">Phase 2</span>
+                </div>
+                <h3>ClearContent CMS &amp; Data</h3>
+                <ul>
+                    <li>Supabase: content, config, users, inquiries</li>
+                    <li>Visual page builder, menu, form constructor</li>
+                    <li>SEO manager, multilingual</li>
+                    <li>Roles: superadmin, admin, editor</li>
+                </ul>
+            </div>
+
+            <!-- Checkpoint C -->
+            <div class="checkpoint-card cp-c">
+                <div class="cp-header">
+                    <span class="cp-badge">Phase 3</span>
+                </div>
+                <h3>Connect &amp; Ship</h3>
+                <ul>
+                    <li>Resend: subject [AI-WEB-2026] &lt;TEAM_SLUG&gt;</li>
+                    <li>Inquiries in Supabase (team_slug, source)</li>
+                    <li>Visible + invisible watermarks</li>
+                    <li>Final package + /ai-web-2026.txt</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        /* Keep min-height: 720px as required; reduce bottom padding to eliminate overflow (top stays 60px) */
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 40px 0 40px; /* bottom reduced to 0 to remove overflow */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #3B82F6; top: -400px; right: -200px; }
+        .blob-2 { background: #6366F1; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 28px; /* slightly reduced to save space */
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            grid-template-rows: 1fr 220px;
+            gap: 10px; /* reduced slightly to save vertical space */
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 22px; /* small reduction to save space */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Left Column: Intro & Why */
+        .card-intro {
+            grid-row: 1 / span 2;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            width: 64px;
+            height: 64px;
+            background: #F3F4F6;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px; /* reduced */
+            overflow: hidden;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-intro h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card-intro p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #4B5563;
+            margin-bottom: 12px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px; /* reduced */
+            font-size: 18px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .feature-list li i {
+            color: #6366F1;
+            font-size: 20px;
+        }
+
+        .comparison-box {
+            background: #EEF2FF;
+            border-radius: 16px;
+            padding: 10px; /* reduced */
+            margin-top: auto;
+        }
+
+        .comparison-box h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #4338CA;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .comparison-box p {
+            font-size: 16px;
+            color: #4B5563;
+            margin-bottom: 0;
+        }
+
+        /* Right Column: Visual */
+        .card-visual {
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .visual-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .visual-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 20px; /* keep readable overlay padding */
+            color: white;
+        }
+
+        /* Right Column: Workflow */
+        .card-workflow {
+            background: #1F2937;
+            color: white;
+            justify-content: center;
+        }
+
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #818CF8;
+        }
+
+        .step-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #E5E7EB;
+            text-transform: uppercase;
+        }
+
+        .arrow {
+            color: #6B7280;
+            font-size: 24px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>TOOLS: GOOGLE AI STUDIO</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Left Column -->
+            <div class="card card-intro">
+                <div>
+                    <div class="logo-container">
+                        <img src="https://private-us-east-1.manuscdn.com/sessionFile/J8zZDpsKzWckvHQhsx0avJ/sandbox/slides_resource_i7ekpd1rwikseh0prkzum-c397d9fb-e2b-prod-us2_1769525194700_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zZWFyY2hfaW1hZ2VzL2pod3BGVW1rWU9MZg.png?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSjh6WkRwc0t6V2NrdkhRaHN4MGF2Si9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pN2VrcGQxcndpa3NlaDBwcmt6dW0tYzM5N2Q5ZmItZTJiLXByb2QtdXMyXzE3Njk1MjUxOTQ3MDBfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwzVndiRzloWkM5elpXRnlZMmhmYVcxaFoyVnpMMnBvZDNCR1ZXMXJXVTlNWmcucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Ztc6k7~Smb5hEOew36ApCmDSmEIT4svNHiut1JrYk-D26ff299avkq5Du2rVcmiEEiv-s9Jhl0s75H~Ohqo81Nl5c~4OevW4HwnHsQIdAd5Y8Gnr~Un3-0K9uuSbOLaIhe0OfDh0SI~zhtfAEDd8DvePeMmHPeLSX1xw2wQpXwj8nnwfNzSvDnmPg0LoL9yNL127LpxjFkeqSv-uFfyQ048cGNxlNRgHKVf7dWAtzntpAHbcGKcox-jlgEFTjCzYKeiWwVCpEV6HpogGK5X-PQaQiiitwV48shtXGwP0rU44mirv9G4E9gC86vtssnk9h2wEJlr-2AmKwKrj6jnPuA__" alt="Google AI Studio Logo" class="logo-img">
+                    </div>
+                    <h2>Google AI Studio</h2>
+                    <p>A free, browser-based environment that provides access to Gemini LLM models.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-bolt"></i> Fast and free</li>
+                        <li><i class="fas fa-code"></i> Generates clean code</li>
+                        <li><i class="fas fa-fire"></i> Firebase integration</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-box">
+                    <h3>Why not ChatGPT?</h3>
+                    <p>Gemini is free in AI Studio and has a large context window, ideal for generating code.</p>
+                </div>
+            </div>
+
+            <!-- Right Column Top: Visual -->
+            <div class="card card-visual">
+                <img src="https://private-us-east-1.manuscdn.com/sessionFile/J8zZDpsKzWckvHQhsx0avJ/sandbox/slides_resource_i7ekpd1rwikseh0prkzum-c397d9fb-e2b-prod-us2_1769525194700_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zZWFyY2hfaW1hZ2VzL0dLdHdUTThVRUtqaQ.jpg?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSjh6WkRwc0t6V2NrdkhRaHN4MGF2Si9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pN2VrcGQxcndpa3NlaDBwcmt6dW0tYzM5N2Q5ZmItZTJiLXByb2QtdXMyXzE3Njk1MjUxOTQ3MDBfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwzVndiRzloWkM5elpXRnlZMmhmYVcxaFoyVnpMMGRMZEhkVVRUaFZSVXRxYVEuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=oIpG1MCiM74pBeRpthUodB~T7lmwOj~wLBbqywIgo2AyIXdF9bShWYTEC0V53Bj-ePlmaHTMEMc1FIIRQ309rkNLc6kh2NJJPxLjq5A29M5Z~BLjtRsk0v-9JebXYRn5Upk~sNMTayRBkfI2448guCcVzfdVGqVCJRBgWBLg3KSrRxK5WpkoIFYwH1fM6LFvZuZ59-5Yf0z3Rb0QsrtqBxGlrwvOMYbxzC~b0nT5cZI8Prphk7yVh1CJjjzq0o4vqR6tl1MW9cjY7YBAQfPXl1I1bkMpcOX9mnG62C2LHOcCPsAPnyWorlWBGmPuHizBHmzMWkVk8CPl9MiA-OCnAw__" alt="Google AI Studio Interface" class="visual-img">
+                <div class="visual-overlay">
+                    <h3 style="font-size: 24px; font-weight: 700; text-transform: uppercase;">Gemini 2.0 Flash</h3>
+                    <p style="font-size: 16px; opacity: 0.9;">Our main tool today.</p>
+                </div>
+            </div>
+
+            <!-- Right Column Bottom: Workflow -->
+            <div class="card card-workflow">
+                <div class="workflow-steps">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-pen"></i></div>
+                        <div class="step-text">Write Prompt</div>
+                    </div>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-copy"></i></div>
+                        <div class="step-text">Copy Code</div>
+                    </div>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="step-text">Test Locally</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

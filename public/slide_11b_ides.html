@@ -1,0 +1,195 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #10B981; top: -400px; right: -200px; } /* Green for Code */
+        .blob-2 { background: #6366F1; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #10B981;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* 3-Column Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .icon-cursor { background: #EEF2FF; color: #4F46E5; }
+        .icon-claude { background: #FEF2F2; color: #DC2626; }
+        .icon-windsurf { background: #ECFDF5; color: #059669; }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4B5563;
+            margin-bottom: 24px;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        li {
+            font-size: 16px;
+            color: #4B5563;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: #D1D5DB;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight {
+            color: #111827;
+            font-weight: 600;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1 class="">IDES</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Cursor -->
+            <div class="card">
+                <div class="icon-box icon-cursor">
+                    <i class="fas fa-mouse-pointer"></i>
+                </div>
+                <h2>Cursor</h2>
+                <p>The new standard. An agentic approach that works in the background and "owns" your codebase.</p>
+                <ul>
+                    <li><span class="highlight">Visual Editing:</span> Change UI without writing code.</li>
+                    <li><span class="highlight">Local Context:</span> Works with your files, secure.</li>
+                    <li><span class="highlight">Debug Mode:</span> Agent fixes errors on the fly.</li>
+                </ul>
+            </div>
+
+            <!-- Claude Code -->
+            <div class="card">
+                <div class="icon-box icon-claude">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2>Claude Code</h2>
+                <p>Anthropic's new CLI tool. Powerful, but costly in terms of tokens.</p>
+                <ul>
+                    <li class=""><span class="highlight">PC Management:</span> Manages the computer, not just code.</li>
+                    <li class=""><span class="highlight">VS Code Plugin:</span> Integrates seamlessly.</li>
+                    
+                </ul>
+            </div>
+
+            <!-- Windsurf & Others -->
+            <div class="card">
+                <div class="icon-box icon-windsurf">
+                    <i class="fas fa-wind"></i>
+                </div>
+                <h2>Windsurf &amp; Others</h2>
+                <p class="">Alternatives that offer a similar experience.</p>
+                <ul>
+                    <li class=""><span class="highlight">Windsurf:</span> VS Code-based, a strong competitor.</li>
+                    <li class=""><span class="highlight">JetBrains AI:</span> Integrated into the IntelliJ ecosystem.</li>
+                    <li class=""><span class="highlight">Kilo Code:</span> Plugin for existing IDEs.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body></html>

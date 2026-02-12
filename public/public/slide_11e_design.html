@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #F59E0B; top: -400px; right: -200px; } /* Orange for creativity */
+        .blob-2 { background: #EF4444; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #F59E0B;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 24px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .card-header {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+        }
+
+        .header-freepik { background: linear-gradient(135deg, #3B82F6, #2563EB); }
+        .header-google { background: linear-gradient(135deg, #EA4335, #FBBC05, #34A853, #4285F4); }
+        .header-figma { background: linear-gradient(135deg, #F24E1E, #A259FF, #1ABCFE); }
+
+        .card-body {
+            padding: 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #4B5563;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: #F3F4F6;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>DESIGN AND GRAPHICS</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="tools-grid">
+            <!-- Freepik -->
+            <div class="tool-card">
+                <div class="card-header header-freepik">
+                    <i class="fas fa-images"></i>
+                </div>
+                <div class="card-body">
+                    <h2>Freepik</h2>
+                    <p>Millions of free vectors, photos, and icons. The fastest way to find visual material for your project.</p>
+                    <span class="feature-tag">ASSETS</span>
+                </div>
+            </div>
+
+            <!-- Google ImageFX -->
+            <div class="tool-card">
+                <div class="card-header header-google">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <div class="card-body">
+                    <h2>ImageFX</h2>
+                    <p>"Nano Banana". Google's experimental image generator. Top-tier quality and control.</p>
+                    <span class="feature-tag">GENERATION</span>
+                </div>
+            </div>
+
+            <!-- Figma -->
+            <div class="tool-card">
+                <div class="card-header header-figma">
+                    <i class="fab fa-figma"></i>
+                </div>
+                <div class="card-body">
+                    <h2>Figma</h2>
+                    <p>The standard for UI design. Create prototypes and export code. Integrates with most vibe coding tools.</p>
+                    <span class="feature-tag">LAYOUT</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

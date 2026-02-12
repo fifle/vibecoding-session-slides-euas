@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #3B82F6; top: -400px; right: -200px; }
+        .blob-2 { background: #8B5CF6; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 6px solid transparent;
+        }
+
+        /* Card Variants */
+        .card-profile { border-top-color: #3B82F6; }
+        .card-projects { border-top-color: #8B5CF6; }
+        .card-settings { border-top-color: #6B7280; }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .card-profile .icon-box { background: #EFF6FF; color: #3B82F6; }
+        .card-projects .icon-box { background: #F5F3FF; color: #8B5CF6; }
+        .card-settings .icon-box { background: #F3F4F6; color: #4B5563; }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1F2937;
+            font-family: 'Monaco', monospace;
+        }
+
+        /* Code Block Styling */
+        .code-block {
+            background: #1F2937;
+            color: #E5E7EB;
+            padding: 20px;
+            border-radius: 12px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .key { color: #93C5FD; }
+        .string { color: #A5B4FC; }
+        .comment { color: #6B7280; font-style: italic; }
+
+        /* Security Rules Card */
+        .security-card {
+            background: #FFFBEB;
+            border: 1px solid #FCD34D;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .security-icon {
+            width: 48px;
+            height: 48px;
+            background: #F59E0B;
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .security-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #92400E;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .security-content p {
+            font-size: 18px;
+            color: #B45309;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>FIRESTORE DATA MODEL</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="model-grid">
+            <!-- Profile Collection -->
+            <div class="card card-profile">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-user"></i></div>
+                    <h2>profile/main</h2>
+                </div>
+                <div class="code-block">
+{
+  <span class="key">name</span>: <span class="string">"Pavel Fleišer"</span>,
+  <span class="key">title</span>: <span class="string">"Senior Engineer"</span>,
+  <span class="key">bio</span>: <span class="string">"..."</span>,
+  <span class="key">image</span>: <span class="string">"url"</span>
+}
+                </div>
+            </div>
+
+            <!-- Projects Collection -->
+            <div class="card card-projects">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-project-diagram"></i></div>
+                    <h2>projects/{id}</h2>
+                </div>
+                <div class="code-block">
+{
+  <span class="key">title</span>: <span class="string">"Sõna ja Tegu"</span>,
+  <span class="key">desc</span>: <span class="string">"..."</span>,
+  <span class="key">image</span>: <span class="string">"url"</span>,
+  <span class="key">link</span>: <span class="string">"https://..."</span>,
+  <span class="key">tags</span>: [<span class="string">"AI"</span>, <span class="string">"LLM"</span>]
+}
+                </div>
+            </div>
+
+            <!-- Settings Collection -->
+            <div class="card card-settings">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-cog"></i></div>
+                    <h2>settings/main</h2>
+                </div>
+                <div class="code-block">
+{
+  <span class="key">admin_uid</span>: <span class="string">"user123"</span>,
+  <span class="key">theme</span>: <span class="string">"light"</span>
+  <span class="comment">// Only admin can read</span>
+}
+                </div>
+            </div>
+        </div>
+
+        <div class="security-card">
+            <div class="security-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="security-content">
+                <h3>Security Rules</h3>
+                <p><strong>Read:</strong> Public (everyone can read) &nbsp;|&nbsp; <strong>Write:</strong> Only Admin (verified by UID)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

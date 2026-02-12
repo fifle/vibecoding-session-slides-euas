@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            /* keep top padding for title consistency, reduce bottom padding to save height */
+            padding: 60px 60px 38px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #8B5CF6; top: -400px; right: -200px; }
+        .blob-2 { background: #3B82F6; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #8B5CF6;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 24px; /* reduced gap */
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Left Column: Code Editor */
+        .editor-card {
+            background: #1E1E1E;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .editor-header {
+            background: #252526;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #333;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red { background: #FF5F56; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #27C93F; }
+
+        .editor-title {
+            color: #9CA3AF;
+            font-size: 14px;
+            margin-left: 12px;
+            font-family: monospace;
+        }
+
+        .code-content {
+            padding: 16px; /* reduced padding */
+            color: #D4D4D4;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 16px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .keyword { color: #C586C0; }
+        .string { color: #CE9178; }
+        .comment { color: #6A9955; }
+        .function { color: #DCDCAA; }
+
+        /* Right Column */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Image Card */
+        .image-card {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px; /* slightly reduced */
+            overflow: hidden;
+        }
+
+        .tech-img {
+            width: 100%;
+            height: auto; /* prevent overflow from intrinsic image height */
+            max-height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Criteria Card */
+        .criteria-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px; /* reduced padding */
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            border-top: 6px solid #8B5CF6;
+        }
+
+        .criteria-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .criteria-list {
+            list-style: none;
+        }
+
+        .criteria-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px; /* reduced spacing */
+            font-size: 18px;
+            color: #4B5563;
+        }
+
+        .check-icon {
+            color: #10B981;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>PROMPT 2: FIRESTORE READ & UI</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left: Code Editor -->
+            <div class="editor-card">
+                <div class="editor-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <div class="editor-title">prompt_ui.txt</div>
+                </div>
+                <div class="code-content">Connect the public one-page site to Supabase so content is driven by CMS data.
+
+Requirements:
+- Fetch page content, sections, and config from Supabase (e.g. <span class="string">pages</span>, <span class="string">blocks</span>)
+- Hero, About, What We Offer, Contact render from CMS content
+- Handle <span class="keyword">loading</span> state (spinner or skeleton)
+- Handle <span class="keyword">empty</span> or missing data gracefully
+- Responsive layout; language switcher if multilingual
+- After CMS change, public site reflects after refresh (or preview)</div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-col">
+                <!-- Visual -->
+                <div class="image-card">
+                    <img src="https://private-us-east-1.manuscdn.com/sessionFile/J8zZDpsKzWckvHQhsx0avJ/sandbox/slides_resource_i7ekpd1rwikseh0prkzum-c397d9fb-e2b-prod-us2_1769525434317_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zZWFyY2hfaW1hZ2VzL2Juemt5SmdnQzlJQg.jpg?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSjh6WkRwc0t6V2NrdkhRaHN4MGF2Si9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pN2VrcGQxcndpa3NlaDBwcmt6dW0tYzM5N2Q5ZmItZTJiLXByb2QtdXMyXzE3Njk1MjU0MzQzMTdfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwzVndiRzloWkM5elpXRnlZMmhmYVcxaFoyVnpMMkp1ZW10NVNtZG5RemxKUWcuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Nhqpa0JhRx7zPkpTEey~KWNe9WoXl46e4M~Zql8ozGSaXgjwBxIeqzICYwvAjxtgdgRp8gc9htKUHBOQ8slohPUiSFxAOu5v7i34TpIQoYoPJo0u5HvzMM5e96dR3nNhRCio61kh-ciuKCItMY7AgTIwf8uV0~Qz-3WyihbVRAtUJndRhf3EfKmaHYnN-JJYqPqP6yY7itVYuZD04Xri-~ItSyRd9TC~3neNA1w1-FgjRmmzgKRXIT3sPcToXuq94D6JVARaFBCizt953F144NNfCv0dT~XG9FdwLJIpQWx-FWoOZ6-ADMJgANYzdI4P2eTWLZJMKfa0k4PUKuLW5w__" alt="Gemini AI Studio Interface" class="tech-img">
+                </div>
+
+                <!-- Acceptance Criteria -->
+                <div class="criteria-card">
+                    <h2><i class="fas fa-clipboard-check" style="color: #8B5CF6;"></i> Acceptance Criteria</h2>
+                    <ul class="criteria-list">
+                        <li>
+                            <i class="fas fa-check-circle check-icon"></i>
+                            <span>Public site reads content from Supabase</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle check-icon"></i>
+                            <span>Loading state handled</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle check-icon"></i>
+                            <span>Responsive; language switcher if enabled</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle check-icon"></i>
+                            <span>CMS changes visible on public site (after refresh)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

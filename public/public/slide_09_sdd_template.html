@@ -1,0 +1,276 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #3B82F6; top: -400px; left: -200px; }
+        .blob-2 { background: #F59E0B; bottom: -400px; right: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .template-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px; /* reduced gap */
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 12px; /* reduced padding */
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 6px solid transparent;
+        }
+
+        /* Card Variants */
+        .card-spec { border-top-color: #3B82F6; }
+        .card-criteria { border-top-color: #10B981; }
+        .card-tasks { border-top-color: #8B5CF6; }
+        .card-iterate { border-top-color: #F59E0B; }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px; /* reduced spacing */
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: white;
+        }
+
+        .card-spec .step-number { background: #3B82F6; }
+        .card-criteria .step-number { background: #10B981; }
+        .card-tasks .step-number { background: #8B5CF6; }
+        .card-iterate .step-number { background: #F59E0B; }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1F2937;
+            text-transform: uppercase;
+        }
+
+        /* Content Styling */
+        .code-block {
+            background: #F3F4F6;
+            padding: 12px; /* reduced */
+            border-radius: 12px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.5;
+            border-left: 4px solid #D1D5DB;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            font-size: 16px;
+            color: #4B5563;
+            margin-bottom: 6px; /* reduced */
+            padding-left: 20px; /* slightly reduced */
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .card-criteria li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #10B981;
+            position: absolute;
+            left: 0;
+        }
+
+        .card-tasks li::before {
+            content: "\f0ae";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #8B5CF6;
+            position: absolute;
+            left: 0;
+        }
+
+        .iterate-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px; /* slightly reduced */
+            background: #FFFBEB;
+            padding: 12px; /* reduced */
+            border-radius: 16px;
+        }
+
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #92400E;
+        }
+
+        .flow-arrow {
+            color: #F59E0B;
+            font-size: 18px;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>SDD TEMPLATE: PRACTICAL EXAMPLE</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="template-grid">
+            <!-- 1. Spec -->
+            <div class="card card-spec">
+                <div class="card-header">
+                    <div class="step-number">1</div>
+                    <h2>Spec (What do you want?)</h2>
+                </div>
+                <div class="code-block">
+                    Create a React component that displays project cards.<br>
+                    Data comes from JSON.<br>
+                    Each card shows: image, title, description, links.<br>
+                    Responsive design (mobile + desktop).
+                </div>
+            </div>
+
+            <!-- 2. Acceptance Criteria -->
+            <div class="card card-criteria">
+                <div class="card-header">
+                    <div class="step-number">2</div>
+                    <h2>Acceptance Criteria</h2>
+                </div>
+                <ul>
+                    <li>Cards are displayed correctly in a grid layout</li>
+                    <li>1 row on mobile, 3 rows on desktop</li>
+                    <li>Clicking on a card opens the project detail view</li>
+                    <li>No red errors in the console</li>
+                </ul>
+            </div>
+
+            <!-- 3. Task Breakdown -->
+            <div class="card card-tasks">
+                <div class="card-header">
+                    <div class="step-number">3</div>
+                    <h2>Task Breakdown</h2>
+                </div>
+                <ul>
+                    <li>Create the component file structure</li>
+                    <li>Add CSS grid layout and styling</li>
+                    <li>Create a mock data JSON file</li>
+                    <li>Make it responsive (media queries)</li>
+                    <li>Test with different screen sizes</li>
+                </ul>
+            </div>
+
+            <!-- 4. Iterate -->
+            <div class="card card-iterate">
+                <div class="card-header">
+                    <div class="step-number">4</div>
+                    <h2>Iterate (Feedback)</h2>
+                </div>
+                <p style="color: #4B5563; margin-bottom: 12px;">The cycle doesn't end with code generation.</p>
+                <div class="iterate-flow">
+                    <div class="flow-step">
+                        <i class="fas fa-play"></i>
+                        <span class="">run</span>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-step">
+                        <i class="fas fa-eye"></i>
+                        <span class="">see</span>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-step">
+                        <i class="fas fa-edit"></i>
+                        <span class="">change spec</span>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-step">
+                        <i class="fas fa-sync"></i>
+                        <span class="">repeat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>

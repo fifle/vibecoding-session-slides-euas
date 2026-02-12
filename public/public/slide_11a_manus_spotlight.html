@@ -1,0 +1,240 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            /* keep top padding for title consistency, reduce other paddings to save height */
+            padding: 60px 40px 40px 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #111827; top: -400px; right: -200px; } /* Dark/Black for Manus */
+        .blob-2 { background: #6366F1; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            /* reduce space under header to pull content up */
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #111827;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px; /* reduced gap to save vertical space */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-box {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .hero-desc {
+            font-size: 20px;
+            color: #4B5563;
+            line-height: 1.5;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+            flex: 1;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px; /* reduced padding to decrease card height */
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .icon-mobile { background: #F3F4F6; color: #111827; }
+        .icon-vm { background: #EEF2FF; color: #4F46E5; }
+        .icon-docs { background: #ECFDF5; color: #059669; }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+
+        .new-badge {
+            display: inline-block;
+            background: #111827;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1 class="">MANUS AI, molt.bot</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Hero -->
+            <div class="hero-card">
+                <div class="logo-box">
+                    <img src="/home/ubuntu/portfoolio_deck/assets/manus_logo.png" alt="Manus Logo" class="logo-img">
+                </div>
+                <div class="hero-text">
+                    <div class="hero-title">General AI Agent</div>
+                    <div class="hero-desc">
+                        Not just a chatbot, but an autonomous agent that possesses a virtual computer and can complete complex tasks from start to finish.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features-grid">
+                <!-- Mobile Apps -->
+                <div class="feature-card">
+                    <div class="icon-circle icon-mobile">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="feature-title">
+                        Mobile Apps</div>
+                    <div class="feature-text">
+                        Develop and publish apps directly to the App Store and Google Play. Previously, this was the biggest hurdle for vibe coders, now it's doable with a single command.
+                    </div>
+                </div>
+
+                <!-- Remote VM -->
+                <div class="feature-card">
+                    <div class="icon-circle icon-vm">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="feature-title">Virtual Machines</div>
+                    <div class="feature-text">
+                        Runs a secure Linux virtual machine. Can install software, use a browser, and run real code, not just simulate it.
+                    </div>
+                </div>
+
+                <!-- Docs & Research -->
+                <div class="feature-card">
+                    <div class="icon-circle icon-docs">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="feature-title">Docs &amp; Research</div>
+                    <div class="feature-text">
+                        Excellent for documentation, presentations, and in-depth research. Gathers information and formats the result.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>

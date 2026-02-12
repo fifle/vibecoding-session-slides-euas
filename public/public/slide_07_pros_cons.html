@@ -1,0 +1,242 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px; /* keep as required */
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 60px 24px; /* keep top padding for title, reduce bottom */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #10B981; top: -400px; left: -200px; }
+        .blob-2 { background: #EF4444; bottom: -400px; right: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 24px; /* reduced from 40 to save vertical space */
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr auto;
+            gap: 16px; /* reduced gap from 32 to 16 */
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px; /* reduced from 40 to 24 */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px; /* reduced from 24 */
+            padding-bottom: 12px; /* reduced from 16 */
+            border-bottom: 2px solid #F3F4F6;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        /* Pros Styling */
+        .pros-card .icon-box { background: #ECFDF5; color: #10B981; }
+        .pros-card .card-title { color: #059669; }
+        .pros-card .card-header { border-bottom-color: #ECFDF5; }
+
+        /* Cons Styling */
+        .cons-card .icon-box { background: #FEF2F2; color: #EF4444; }
+        .cons-card .card-title { color: #DC2626; }
+        .cons-card .card-header { border-bottom-color: #FEF2F2; }
+
+        /* List Styling */
+        ul { list-style: none; }
+        li {
+            font-size: 20px; /* must not shrink */
+            color: #4B5563;
+            margin-bottom: 12px; /* reduced from 16 */
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .pros-card li::before {
+            content: "\f00c"; /* check */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #10B981;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .cons-card li::before {
+            content: "\f00d"; /* times */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #EF4444;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* Bottom Summary Card */
+        .summary-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            color: white;
+            flex-direction: row;
+            align-items: center;
+            gap: 24px;
+            padding: 20px 24px; /* slightly tighter */
+        }
+
+        .summary-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #6366F1;
+            flex-shrink: 0;
+        }
+
+        .summary-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #E5E7EB;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .summary-content p {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #D1D5DB;
+            margin: 0;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1 class="">VIBE CODING: Pros VS Cons</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Pros -->
+            <div class="card pros-card">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-thumbs-up"></i></div>
+                    <div class="card-title">Pros</div>
+                </div>
+                <ul>
+                    <li class="">Rapid prototyping</li>
+                    <li>Less tedious "boilerplate" code</li>
+                    <li>Fast iteration and immediate feedback</li>
+                    <li>Allows focusing on creativity and ideas</li>
+                </ul>
+            </div>
+
+            <!-- Cons -->
+            <div class="card cons-card">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fas fa-thumbs-down"></i></div>
+                    <div class="card-title">Cons</div>
+                </div>
+                <ul>
+                    <li>Code can be "messy" without clear guidance</li>
+                    <li>Hallucinations and logic errors</li>
+                    <li class="">Harder maintenance without documentation</li>
+                    <li class="">Security risks</li>
+                </ul>
+            </div>
+
+            <!-- Professional Perspective -->
+            <div class="card summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="summary-content">
+                    <h3>Professional Perspective</h3>
+                    <p class="">Vibe coding is great for MVPs and prototypes.&nbsp;</p><div>For serious projects, it's essential to add specifications (spec), tests, and proper documentation.</div><p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>

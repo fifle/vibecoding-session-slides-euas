@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #8B5CF6; top: -400px; right: -200px; }
+        .blob-2 { background: #10B981; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #8B5CF6;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* 2-Column Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+        }
+
+        .card-title i { color: #8B5CF6; }
+
+        .resource-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .resource-icon {
+            color: #9CA3AF;
+            margin-top: 4px;
+            font-size: 14px;
+        }
+
+        .resource-content {
+            flex: 1;
+        }
+
+        .resource-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+
+        .resource-desc {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.4;
+        }
+
+        .person-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .person-card {
+            background: #F9FAFB;
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .person-avatar {
+            width: 40px;
+            height: 40px;
+            background: #E5E7EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6B7280;
+        }
+
+        .person-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .person-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1F2937;
+        }
+
+        .person-role {
+            font-size: 12px;
+            color: #6B7280;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>USEFUL MATERIALS</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left: Reading & Tools -->
+            <div class="section-card">
+                <div class="card-title">
+                    <i class="fas fa-book-open"></i> Reading &amp; Tools
+                </div>
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <i class="fas fa-link resource-icon"></i>
+                        <div class="resource-content">
+                            <div class="resource-name">skills.sh</div>
+                            <div class="resource-desc">Specs library. Large collection of ready-made specifications for vibe coding.</div>
+                        </div>
+                    </li>
+                    <li class="resource-item">
+                        <i class="fas fa-link resource-icon"></i>
+                        <div class="resource-content">
+                            <div class="resource-name">YC Library</div>
+                            <div class="resource-desc">"How to get the most out of vibe coding". Mandatory reading.</div>
+                        </div>
+                    </li>
+                    <li class="resource-item">
+                        <i class="fas fa-link resource-icon"></i>
+                        <div class="resource-content">
+                            <div class="resource-name">Lenny's Newsletter</div>
+                            <div class="resource-desc">Ideas and examples of what people are actually building.</div>
+                        </div>
+                    </li>
+                    <li class="resource-item">
+                        <i class="fas fa-link resource-icon"></i>
+                        <div class="resource-content">
+                            <div class="resource-name">Pretty Prompt</div>
+                            <div class="resource-desc">Tools for writing better prompts.</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right: People -->
+            <div class="section-card">
+                <div class="card-title">
+                    <i class="fas fa-users"></i> Who to Follow
+                </div>
+                
+                <div style="margin-bottom: 24px;">
+                    <h3 style="font-size: 14px; text-transform: uppercase; color: #9CA3AF; margin-bottom: 12px;">Global</h3>
+                    <div class="person-grid">
+                        <div class="person-card">
+                            <div class="person-avatar"><i class="fas fa-user"></i></div>
+                            <div class="person-info">
+                                <span class="person-name">Andrej Karpathy</span>
+                                <span class="person-role">AI Visionary</span>
+                            </div>
+                        </div>
+                        <div class="person-card">
+                            <div class="person-avatar"><i class="fas fa-user"></i></div>
+                            <div class="person-info">
+                                <span class="person-name">Anton Osika</span>
+                                <span class="person-role">GPT Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 14px; text-transform: uppercase; color: #9CA3AF; margin-bottom: 12px;">Estonian Experts</h3>
+                    <div class="person-grid">
+                        <div class="person-card">
+                            <div class="person-avatar"><i class="fas fa-user"></i></div>
+                            <div class="person-info">
+                                <span class="person-name">Luukas Ilves</span>
+                                <span class="person-role">Tech Leader</span>
+                            </div>
+                        </div>
+                        <div class="person-card">
+                            <div class="person-avatar"><i class="fas fa-user"></i></div>
+                            <div class="person-info">
+                                <span class="person-name">Kei Olbrei</span>
+                                <span class="person-role">Educator</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<html lang="et"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #3B82F6; top: -400px; right: -200px; }
+        .blob-2 { background: #8B5CF6; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px; /* reduced from 40 -> saves vertical space */
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #3B82F6;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .rubric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px; /* reduced from 32 -> less vertical gap between rows */
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 12.25px; /* reduced from 32 -> calculated to fit within 720px */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Card Header with Percentage */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px; /* reduced from 20 */
+            padding-bottom: 8px; /* reduced from 16 */
+            border-bottom: 2px solid #F3F4F6;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-title h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F2937;
+            text-transform: uppercase;
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .percentage-badge {
+            font-size: 24px;
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: 12px;
+        }
+
+        /* Color Variants */
+        .card-func .icon-box { background: #EFF6FF; color: #3B82F6; }
+        .card-func .percentage-badge { background: #EFF6FF; color: #3B82F6; }
+        .card-code .icon-box { background: #F5F3FF; color: #8B5CF6; }
+        .card-code .percentage-badge { background: #F5F3FF; color: #8B5CF6; }
+        .card-design .icon-box { background: #FDF2F8; color: #DB2777; }
+        .card-design .percentage-badge { background: #FDF2F8; color: #DB2777; }
+        .card-content .icon-box { background: #ECFDF5; color: #10B981; }
+        .card-content .percentage-badge { background: #ECFDF5; color: #10B981; }
+
+        /* List Styling */
+        ul {
+            list-style: none;
+        }
+
+        li {
+            font-size: 18px;
+            color: #4B5563;
+            margin-bottom: 10px; /* slightly reduced from 12 */
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+
+        .card-func li::before { color: #3B82F6; }
+        .card-code li::before { color: #8B5CF6; }
+        .card-design li::before { color: #DB2777; }
+        .card-content li::before { color: #10B981; }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body>
+    <div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>SCORING RUBRIC (100)</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="rubric-grid">
+            <div class="card card-func">
+                <div class="card-header">
+                    <div class="category-title">
+                        <div class="icon-box"><i class="fas fa-globe"></i></div>
+                        <h2>Public Site &amp; CMS Builder</h2>
+                    </div>
+                    <span class="percentage-badge">40</span>
+                </div>
+                <ul>
+                    <li>Public website: required copy, 4 sections, responsiveness (20)</li>
+                    <li>ClearContent CMS visual builder and block management (20)</li>
+                </ul>
+            </div>
+
+            <div class="card card-code">
+                <div class="card-header">
+                    <div class="category-title">
+                        <div class="icon-box"><i class="fas fa-edit"></i></div>
+                        <h2>Content &amp; Form</h2>
+                    </div>
+                    <span class="percentage-badge">30</span>
+                </div>
+                <ul>
+                    <li>Content editing, menu editor, multilingual (15)</li>
+                    <li>Form constructor and public form behavior (15)</li>
+                </ul>
+            </div>
+
+            <div class="card card-design">
+                <div class="card-header">
+                    <div class="category-title">
+                        <div class="icon-box"><i class="fas fa-search"></i></div>
+                        <h2>SEO &amp; Inquiries</h2>
+                    </div>
+                    <span class="percentage-badge">20</span>
+                </div>
+                <ul>
+                    <li>SEO manager and correct public metadata (10)</li>
+                    <li>Inquiry persistence with team_slug, source (10)</li>
+                </ul>
+            </div>
+
+            <div class="card card-content">
+                <div class="card-header">
+                    <div class="category-title">
+                        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                        <h2>Resend &amp; Security</h2>
+                    </div>
+                    <span class="percentage-badge">10</span>
+                </div>
+                <ul>
+                    <li>Resend email notification rules met (5)</li>
+                    <li>Security, repo hygiene, documentation (5)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body></html>

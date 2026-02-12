@@ -1,0 +1,142 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #3B82F6; top: -400px; right: -200px; }
+        .blob-2 { background: #10B981; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #3B82F6;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Content */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Adjusted image-container height to fit within 720px total (calculated)
+           Original: 400px -> New: 356px (reduces overall slide height by 44px) */
+        .image-container {
+            width: 100%;
+            height: 356px;
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spectrum-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .caption-box {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .caption-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .caption-text {
+            font-size: 18px;
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #2563EB;
+            font-weight: 700;
+        }
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>AI ENGINEER SPECTRUM</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="https://substackcdn.com/image/fetch/$s_!Bojh!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa81555af-0b76-4a61-9b53-595e3d47580a_1005x317.png" alt="AI Engineer Spectrum" class="spectrum-img">
+            </div>
+
+            <div class="caption-box">
+                
+                <div class="caption-text">
+                    Today we no longer need to deal with training models (Research). <br>
+                    Our role is an <span class="highlight">AI Engineer</span> – we integrate ready-made models (API) with products, creating value for the user.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>

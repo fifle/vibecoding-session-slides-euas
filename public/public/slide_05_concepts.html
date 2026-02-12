@@ -1,0 +1,211 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #6366F1; top: -400px; right: -200px; }
+        .blob-2 { background: #3B82F6; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #6366F1;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Content Grid */
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 24px;
+        }
+
+        .concept-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .icon-indigo { background: #EEF2FF; color: #6366F1; }
+        .icon-blue { background: #EFF6FF; color: #3B82F6; }
+        .icon-purple { background: #F5F3FF; color: #8B5CF6; }
+
+        .concept-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .concept-card p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #4B5563;
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            border-radius: 24px;
+            padding: 32px 40px;
+            color: white;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex: 1;
+        }
+
+        .bottom-icon {
+            font-size: 40px;
+            color: #6366F1;
+            background: rgba(255, 255, 255, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bottom-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #F3F4F6;
+            text-transform: uppercase;
+        }
+
+        .bottom-content p {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #D1D5DB;
+        }
+
+        .highlight {
+            color: #818CF8;
+            font-weight: 600;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>GENAI, LLM AND PROMPTING</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="concepts-grid">
+            <!-- Card 1 -->
+            <div class="concept-card">
+                <div class="icon-box icon-indigo">
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                </div>
+                <h2>GenAI</h2>
+                <p><strong>Generative AI</strong> – models that create new content (text, code, images). It's not just a search, it's creation.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="concept-card">
+                <div class="icon-box icon-blue">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2>LLM</h2>
+                <p><strong>Large Language Model</strong> – a large neural network that understands and generates text based on probabilities.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="concept-card">
+                <div class="icon-box icon-purple">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <h2>Prompting</h2>
+                <p class="">Basically an instruction.</p><div>The key to success is <strong>clarity</strong>, <strong>context</strong> and <strong>constraints</strong>.</div><p></p>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="bottom-icon">
+                <i class="fas fa-user-cog"></i>
+            </div>
+            <div class="bottom-content">
+                <h3>From a Developer's Perspective</h3>
+                <p class="">The LLM is a <span class="highlight">tool</span>, not a replacement. You control, test, and debug.&nbsp;</p><div>Responsibility for code quality remains with you.</div><p></p>
+            </div>
+        </div>
+    </div>
+
+</body></html>

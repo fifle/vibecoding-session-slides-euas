@@ -1,0 +1,227 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            padding-top: 60px; /* Top padding only */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.05;
+            z-index: 0;
+        }
+        .blob-blue { background: #3B82F6; top: -200px; right: -200px; }
+        .blob-indigo { background: #6366F1; bottom: -200px; left: -200px; }
+
+        /* Content Grid (Bento Layout) */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 24px;
+            width: 1160px; /* 1280 - 60 - 60 margins */
+            height: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bento-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Photo Card */
+        .photo-card {
+            grid-row: 1 / span 2;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Header Card */
+        .header-card {
+            grid-column: 2;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #6366F1;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Details Grid inside Right Column */
+        .details-grid {
+            grid-column: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .detail-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+        }
+        
+        h3 i { color: #6366F1; }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #4B5563;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        li {
+            font-size: 18px;
+            color: #4B5563;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        li::before {
+            content: "•";
+            color: #6366F1;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #EEF2FF;
+            color: #4F46E5;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-blue"></div>
+        <div class="bg-blob blob-indigo"></div>
+
+        <div class="bento-grid">
+            <!-- Photo Column -->
+            <div class="bento-card photo-card">
+                <img src="pavel_fleisher.jpg" alt="Pavel Fleišer" class="profile-img">
+            </div>
+
+            <!-- Content Column -->
+            <div class="bento-card header-card">
+                <h1>Pavel Fleišer</h1>
+                <h2>Senior Quality &amp; Infrastructure Engineer</h2>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3><i class="fas fa-code"></i> EXPERIENCE</h3>
+                    <ul>
+                        <li>14+ years in software development</li>
+                        <li class="">9 years as a tester (Quality Engineering)</li>
+                        <li>TalTech IT College alumnus</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-robot"></i> FOCUS</h3>
+                    <p style="margin-bottom: 16px;">AI-based solutions and LLM tools.</p>
+                    <div class="tag-container">
+                        <span class="tag">AI Agents</span>
+                        <span class="tag">Automation</span>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="detail-card full-width" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; gap: 32px;">
+                        <div style="display: flex; align-items: center; gap: 10px; color: #4B5563; font-weight: 500;">
+                            <i class="fab fa-linkedin" style="font-size: 24px; color: #0077b5;"></i> linkedin.com/in/pfleiser
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; color: #4B5563; font-weight: 500;">
+                            <i class="fab fa-github" style="font-size: 24px; color: #333;"></i> github.com/fifle
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; color: #4B5563; font-weight: 500;">
+                            <i class="fas fa-envelope" style="font-size: 24px; color: #EA4335;"></i> pavel@fleisher.ee
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>

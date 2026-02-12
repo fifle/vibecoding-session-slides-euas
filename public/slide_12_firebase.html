@@ -1,0 +1,329 @@
+<html lang="en"><head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #F5F7FA;
+            position: relative;
+            overflow: hidden;
+            /* keep top padding for title, reduce bottom padding to save height */
+            padding: 60px 60px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Accents */
+        .bg-blob {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+            z-index: 0;
+        }
+        .blob-1 { background: #F59E0B; top: -400px; right: -200px; }
+        .blob-2 { background: #FCD34D; bottom: -400px; left: -200px; }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .accent-bar {
+            width: 100px;
+            height: 6px;
+            background: #F59E0B;
+            margin-top: 16px;
+            border-radius: 3px;
+        }
+
+        /* Main Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 12px; /* reduced gap to save vertical space */
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px; /* reduced padding */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Left Column: Intro */
+        .card-intro {
+            grid-row: 1;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-container {
+            width: 80px; /* smaller logo */
+            height: 80px;
+            margin-bottom: 12px; /* reduced */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .card-intro h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 8px; /* reduced */
+        }
+
+        .card-intro p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #4B5563;
+        }
+
+        /* Left Column: Why */
+        .card-why {
+            grid-row: 2;
+            background: #FFFBEB; /* Light yellow bg */
+            border: 1px solid #FCD34D;
+        }
+
+        .card-why h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #B45309;
+            margin-bottom: 12px; /* reduced */
+            text-transform: uppercase;
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px; /* reduced */
+            font-size: 18px;
+            color: #78350F;
+            font-weight: 500;
+        }
+
+        .why-list li i {
+            color: #F59E0B;
+        }
+
+        /* Right Column: Services */
+        .card-services {
+            grid-column: 2;
+            grid-row: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px; /* reduced */
+            background: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .service-item {
+            background: white;
+            border-radius: 20px;
+            padding: 16px; /* reduced */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px; /* slightly reduced */
+        }
+
+        .service-icon {
+            width: 48px; /* reduced */
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .icon-auth { background: #ECFDF5; color: #10B981; }
+        .icon-db { background: #EFF6FF; color: #3B82F6; }
+        .icon-host { background: #FEF2F2; color: #EF4444; }
+
+        .service-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1F2937;
+        }
+
+        .service-item p {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.4;
+        }
+
+        /* Right Column: Architecture */
+        .card-arch {
+            grid-column: 2;
+            grid-row: 2;
+            background: #1F2937;
+            color: white;
+            justify-content: center;
+            padding: 20px; /* ensure consistent reduced padding */
+        }
+
+        .arch-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            gap: 12px; /* reduce spacing */
+        }
+
+        .arch-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px; /* reduced */
+        }
+
+        .node-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 18px; /* reduced */
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .node-label {
+            font-size: 14px;
+            color: #9CA3AF;
+            text-transform: uppercase;
+        }
+
+        .arch-arrow {
+            color: #6B7280;
+            font-size: 18px; /* slightly reduced */
+        }
+
+    </style>
+<style manus-editor-reset-styles="true">
+  [size="1"] { font-size: 12px !important; }
+  [size="2"] { font-size: 14px !important; }
+  [size="3"] { font-size: 16px !important; }
+  [size="4"] { font-size: 24px !important; }
+  [size="5"] { font-size: 32px !important; }
+  [size="6"] { font-size: 48px !important; }
+  [size="7"] { font-size: 72px !important; }
+  </style></head>
+<body><div class="slide-container">
+        <div class="bg-blob blob-1"></div>
+        <div class="bg-blob blob-2"></div>
+        
+        <div class="header">
+            <h1>FIREBASE: WHAT IS IT?</h1>
+            <div class="accent-bar"></div>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Left Column: Intro -->
+            <div class="card card-intro">
+                <div class="logo-container">
+                    <img src="https://private-us-east-1.manuscdn.com/sessionFile/J8zZDpsKzWckvHQhsx0avJ/sandbox/slides_resource_i7ekpd1rwikseh0prkzum-c397d9fb-e2b-prod-us2_1769525267360_na1fn_L2hvbWUvdWJ1bnR1L3VwbG9hZC9zZWFyY2hfaW1hZ2VzLzNvY0xFUkw4WEdlNg.png?x-oss-process=image/resize,w_1560,h_1560/format,webp&amp;Expires=1798761600&amp;Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSjh6WkRwc0t6V2NrdkhRaHN4MGF2Si9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pN2VrcGQxcndpa3NlaDBwcmt6dW0tYzM5N2Q5ZmItZTJiLXByb2QtdXMyXzE3Njk1MjUyNjczNjBfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwzVndiRzloWkM5elpXRnlZMmhmYVcxaFoyVnpMek52WTB4RlVrdzRXRWRsTmcucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&amp;Key-Pair-Id=K2HSFNDJXOU9YS&amp;Signature=VysMp~TIDI8oyK51wMFateL9GCd4NNgAfrXs3ZdARLcUJyE6g7w3AsWSlj2ztrLYiUURVTSXOiDPUmvVtFPbzmAL7brO5w84mKOFbgPDpEejMrcIAj4Q9NodOpEAEJ4mdd~MjNgNQiHvoSwREQ0sQtuvAV9084JDwxTOHwrJ7SNKik0dE9G7vMWgtqFnhiVM66dcEiVFx5Drcil-EKiEjXf39XtG3opBSaoEWcdYb4vn-fDYLQc1YmT4pYtOh0cIhQ3tzW0nE1ntZFq3UQzfJDp2Fetlva3VK8SeWDTCwBv~PygLI9cqgWwcbxrfJlsYZeDlNR0R6CvlOrlI04JSuQ__" alt="Firebase Logo" class="logo-img">
+                </div>
+                <h2>Backend-as-a-Service</h2>
+                <p>Google's platform that provides ready-made backend solutions so you can focus on the frontend.</p>
+            </div>
+
+            <!-- Left Column: Why -->
+            <div class="card card-why">
+                <h3>Why Firebase??</h3>
+                <ul class="why-list">
+                    <li><i class="fas fa-check-circle"></i> Free (Spark Plan)</li>
+                    <li><i class="fas fa-bolt"></i> Fast setup</li>
+                    <li><i class="fas fa-server"></i> Serverless</li>
+                    <li><i class="fas fa-google"></i> Google Integration</li>
+                </ul>
+            </div>
+
+            <!-- Right Column: Services -->
+            <div class="card-services">
+                <div class="service-item">
+                    <div class="service-icon icon-auth">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h4>Authentication</h4>
+                    <p>User login (Google, Email) without complex code.</p>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon icon-db">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Firestore</h4>
+                    <p>NoSQL database. JSON-like structure, in real-time.</p>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon icon-host">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4>Hosting</h4>
+                    <p>Free and fast hosting for your React app (CDN).</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Architecture -->
+            <div class="card card-arch">
+                <div style="margin-bottom: 12px; font-size: 18px; font-weight: 700; color: #F3F4F6; text-transform: uppercase;" class=""><div style="text-align: center;">Our Architecture</div></div>
+                <div class="arch-flow">
+                    <div class="arch-node">
+                        <div class="node-box">React App</div>
+                        <div class="node-label">Frontend</div>
+                    </div>
+                    <div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="arch-node">
+                        <div class="node-box" style="border-color: #F59E0B; color: #F59E0B;">Firestore</div>
+                        <div class="node-label">Database</div>
+                    </div>
+                    <div class="arch-arrow"><i class="fas fa-arrow-left"></i></div>
+                    <div class="arch-node">
+                        <div class="node-box">Admin</div>
+                        <div class="node-label">CMS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>
